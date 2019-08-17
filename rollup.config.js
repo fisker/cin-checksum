@@ -26,6 +26,9 @@ const builds = product([
       file,
       format,
       name,
+      // removes code bellow from boundle
+      // Object.defineProperty(exports, '__esModule', {value: true})
+      esModule: false,
     },
     plugins,
   }
