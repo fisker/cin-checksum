@@ -1,6 +1,6 @@
 {
   "name": "cin-checksum",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Citizen identification number(GB 11643-1999) Checksum",
   "main": "lib/index.min.js",
   "module": "lib/index.min.mjs",
