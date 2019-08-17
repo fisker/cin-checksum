@@ -71,7 +71,11 @@ validate('11010519491231002X')
 // -> true
 ```
 
+<!-- markdownlint-disable MD024 -->
+
 #### parts
+
+<!-- markdownlint-enable MD024 -->
 
 - first 17/18 digits to validate
 - type: `string`
