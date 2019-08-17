@@ -4,8 +4,11 @@
   "description": "Citizen identification number(GB 11643-1999) Checksum",
   "main": "lib/index.min.js",
   "module": "lib/index.min.mjs",
+  "browser": "lib/index.min.js",
   "unpkg": "lib/index.min.js",
   "jsdelivr": "lib/index.min.js",
+  "repository": "fisker/cin-checksum",
+  "homepage": "https://github.com/fisker/cin-checksum#readme",
   "license": "MIT",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
