@@ -1,0 +1,87 @@
+{
+  "name": "cin-checksum",
+  "version": "0.0.0",
+  "description": "Citizen identification number(GB 11643-1999) Checksum",
+  "main": "lib/index.min.js",
+  "module": "lib/index.min.mjs",
+  "unpkg": "lib/index.min.js",
+  "jsdelivr": "lib/index.min.js",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "run-p build:*",
+    "build:js": "rollup --config",
+    "dist": "run-p dist:*",
+    "dist:npm": "np --yolo --no-yarn",
+    "format": "run-p format:*",
+    "format:eslint": "yarn lint:eslint --fix",
+    "format:prettier": "prettier \"**/*.{css,html,js,json,less,md,scss,ts,vue,yaml,yml}\" --write",
+    "lint": "run-p lint:*",
+    "lint:eslint": "eslint \"**/*.{js,mjs,vue}\"",
+    "lint:markdown": "markdownlint \"**/*.md\" --ignore \"**/node_modules/**\"",
+    "lint:prettier": "prettier \"**/*.{css,html,js,json,less,md,scss,ts,vue,yaml,yml}\" --check",
+    "test": "ava",
+    "test-coverage": "nyc ava"
+  },
+  "author": {
+    "name": "fisker Cheung",
+    "email": "lionkay@gmail.com",
+    "url": "https://www.fiskercheung.com/"
+  },
+  "sideEffects": false,
+  "devDependencies": {
+    "@commitlint/cli": "8.1.0",
+    "@fisker/commitlint-config": "1.1.2",
+    "@fisker/eslint-config": "1.2.10",
+    "@fisker/eslint-config-ava": "1.2.2",
+    "@fisker/husky-config": "1.1.1",
+    "@fisker/lint-staged-config": "1.0.5",
+    "@fisker/prettier-config": "1.0.18",
+    "ava": "2.2.0",
+    "cz-conventional-changelog": "3.0.2",
+    "eslint": "6.1.0",
+    "esm": "3.2.25",
+    "fast-cartesian-product": "1.0.0",
+    "husky": "3.0.4",
+    "lint-staged": "9.2.2",
+    "markdownlint-cli": "0.17.0",
+    "npm-run-all": "4.1.5",
+    "nyc": "14.1.1",
+    "prettier": "1.18.2",
+    "rollup": "1.19.4",
+    "rollup-plugin-prettier": "0.6.0",
+    "rollup-plugin-terser": "5.1.1"
+  },
+  "ava": {
+    "verbose": true,
+    "require": [
+      "esm"
+    ],
+    "files": [
+      "test/generate.js",
+      "test/validate.js"
+    ]
+  },
+  "nyc": {
+    "all": true,
+    "require": "esm",
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "include": [
+      "src/**"
+    ]
+  }
+}
