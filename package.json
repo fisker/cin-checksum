@@ -41,6 +41,7 @@
   },
   "sideEffects": false,
   "devDependencies": {
+    "@babel/preset-env": "7.5.5",
     "@commitlint/cli": "8.1.0",
     "@fisker/commitlint-config": "1.1.2",
     "@fisker/eslint-config": "1.2.10",
@@ -60,6 +61,7 @@
     "nyc": "14.1.1",
     "prettier": "1.18.2",
     "rollup": "1.19.4",
+    "rollup-plugin-babel": "4.3.3",
     "rollup-plugin-prettier": "0.6.0",
     "rollup-plugin-terser": "5.1.1"
   },

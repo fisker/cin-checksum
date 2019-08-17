@@ -1,4 +1,5 @@
 import product from 'fast-cartesian-product'
+import babel from 'rollup-plugin-babel'
 import prettier from 'rollup-plugin-prettier'
 import {terser} from 'rollup-plugin-terser'
 
@@ -14,6 +15,10 @@ const builds = product([
 ]).map(([{format, extension, name}, minify]) => {
   const plugins = minify ? [terser()] : [prettier()]
   const file = `lib/index${minify ? '.min' : ''}.${extension}`
+
+  if (format === 'umd') {
+    plugins.push(babel())
+  }
 
   return {
     input,
