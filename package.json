@@ -2,26 +2,23 @@
   "name": "cin-checksum",
   "version": "1.0.0",
   "description": "Citizen identification number(GB 11643-1999) Checksum",
-  "main": "lib/index.min.js",
-  "module": "lib/index.min.mjs",
-  "browser": "lib/index.min.js",
-  "unpkg": "lib/index.min.js",
-  "jsdelivr": "lib/index.min.js",
-  "repository": "fisker/cin-checksum",
   "homepage": "https://github.com/fisker/cin-checksum#readme",
+  "repository": "fisker/cin-checksum",
   "license": "MIT",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
-    "access": "public"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+  "author": {
+    "name": "fisker Cheung",
+    "email": "lionkay@gmail.com",
+    "url": "https://www.fiskercheung.com/"
   },
   "files": [
     "lib"
   ],
+  "sideEffects": false,
+  "main": "lib/index.min.js",
+  "unpkg": "lib/index.min.js",
+  "jsdelivr": "lib/index.min.js",
+  "module": "lib/index.min.mjs",
+  "browser": "lib/index.min.js",
   "scripts": {
     "build": "run-p build:*",
     "build:js": "rollup --config",
@@ -40,12 +37,11 @@
     "test": "ava",
     "test-coverage": "nyc ava"
   },
-  "author": {
-    "name": "fisker Cheung",
-    "email": "lionkay@gmail.com",
-    "url": "https://www.fiskercheung.com/"
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
-  "sideEffects": false,
   "devDependencies": {
     "@babel/preset-env": "7.5.5",
     "@commitlint/cli": "8.1.0",
@@ -71,6 +67,10 @@
     "rollup-plugin-babel": "4.3.3",
     "rollup-plugin-prettier": "0.6.0",
     "rollup-plugin-terser": "5.1.1"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "ava": {
     "verbose": true,
