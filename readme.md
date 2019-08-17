@@ -25,10 +25,7 @@ lib/
 ```html
 <!-- ES Module -->
 <script type="module">
-import {
-  generate,
-  validate
-} from 'https://unpkg.com/cin-checksum?module'
+  import {generate, validate} from 'https://unpkg.com/cin-checksum?module'
 </script>
 
 <!-- UMD -->
@@ -41,10 +38,7 @@ import {
 
 ```js
 // ES Module
-import {
-  generate,
-  validate
-} from 'cin-checksum'
+import {generate, validate} from 'cin-checksum'
 ```
 
 ```js
