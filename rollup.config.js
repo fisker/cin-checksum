@@ -14,7 +14,7 @@ const builds = product([
   [false, true],
 ]).map(([{format, extension, name}, minify]) => {
   const plugins = minify ? [terser()] : [prettier()]
-  const file = `lib/index${minify ? '.min' : ''}.${extension}`
+  const file = `dist/index${minify ? '.min' : ''}.${extension}`
 
   if (format === 'umd') {
     plugins.push(babel())
