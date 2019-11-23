@@ -4,14 +4,14 @@
 
 ## Install
 
-```sh
+```bash
 yarn add cin-checksum
 ```
 
 ## Files
 
 ```text
-lib/
+dist/
 ├─ index.js         ( UMD )
 ├─ index.min.js     ( UMD, compressed )
 ├─ index.mjs        ( ES Module )
