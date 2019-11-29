@@ -43,7 +43,7 @@ import {generate, validate} from 'cin-checksum'
 
 ```js
 // UMD
-const {generate, validate} from 'cin-checksum'
+const {generate, validate} = require('cin-checksum')
 ```
 
 ## API
