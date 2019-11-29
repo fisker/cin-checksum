@@ -16,7 +16,6 @@
   "sideEffects": false,
   "main": "dist/index.min.js",
   "unpkg": "dist/index.min.js",
-  "jsdelivr": "dist/index.min.js",
   "module": "dist/index.min.mjs",
   "browser": "dist/index.min.js",
   "scripts": {
@@ -29,6 +28,7 @@
     "format": "run-p format:*",
     "format:eslint": "yarn lint:eslint --fix",
     "format:markdown": "yarn lint:markdown --fix",
+    "format:package-json": "sort-package-json \"package.json\" \"packages/*/package.json\"",
     "format:prettier": "yarn lint:prettier --write",
     "lint": "run-p lint:*",
     "lint:eslint": "eslint \"**/*.{js,mjs,vue}\"",
@@ -67,7 +67,8 @@
     "rollup": "1.27.5",
     "rollup-plugin-babel": "4.3.3",
     "rollup-plugin-prettier": "0.6.0",
-    "rollup-plugin-terser": "5.1.2"
+    "rollup-plugin-terser": "5.1.2",
+    "sort-package-json": "1.24.0"
   },
   "publishConfig": {
     "access": "public",
@@ -83,6 +84,7 @@
       "test/validate.js"
     ]
   },
+  "jsdelivr": "dist/index.min.js",
   "nyc": {
     "all": true,
     "require": "esm",
