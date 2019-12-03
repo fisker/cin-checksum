@@ -15,6 +15,7 @@
   ],
   "sideEffects": false,
   "main": "dist/index.min.js",
+  "jsdelivr": "dist/index.min.js",
   "unpkg": "dist/index.min.js",
   "module": "dist/index.min.mjs",
   "browser": "dist/index.min.js",
@@ -33,6 +34,7 @@
     "lint": "run-p lint:*",
     "lint:eslint": "eslint \"**/*.{js,mjs,vue}\"",
     "lint:markdown": "markdownlint \"**/*.md\" --ignore \"**/node_modules/**\"",
+    "lint:package-json": "yarn run format:package-json --check",
     "lint:prettier": "prettier \"**/*.{css,html,js,json,less,md,scss,ts,vue,yaml,yml}\" --check",
     "release": "run-s clean build lint test dist",
     "test": "ava",
@@ -42,6 +44,27 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "ava": {
+    "files": [
+      "test/generate.js",
+      "test/validate.js"
+    ],
+    "require": [
+      "esm"
+    ],
+    "verbose": true
+  },
+  "nyc": {
+    "all": true,
+    "include": [
+      "src/**"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "require": "esm"
   },
   "devDependencies": {
     "@babel/preset-env": "7.7.4",
@@ -73,27 +96,5 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
-  },
-  "ava": {
-    "verbose": true,
-    "require": [
-      "esm"
-    ],
-    "files": [
-      "test/generate.js",
-      "test/validate.js"
-    ]
-  },
-  "jsdelivr": "dist/index.min.js",
-  "nyc": {
-    "all": true,
-    "require": "esm",
-    "reporter": [
-      "lcov",
-      "text"
-    ],
-    "include": [
-      "src/**"
-    ]
   }
 }
