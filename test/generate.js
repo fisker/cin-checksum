@@ -1,6 +1,6 @@
 import test from 'ava'
 import {generate} from '../src'
-import ids from './fixtures'
+import ids from './_fixtures'
 
 test('should generate right checksum', t => {
   for (const id of ids) {

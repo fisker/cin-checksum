@@ -6,6 +6,6 @@ export default [
   // smallest id
   '000000190001010009',
 
-  // bigest id
+  // greatest id
   '999999999912319992',
 ]

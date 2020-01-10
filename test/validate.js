@@ -1,6 +1,6 @@
 import test from 'ava'
 import {validate} from '../src'
-import ids from './fixtures'
+import ids from './_fixtures'
 
 test('should be true', t => {
   for (const id of ids) {
