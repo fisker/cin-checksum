@@ -46,10 +46,6 @@
     }
   },
   "ava": {
-    "files": [
-      "test/generate.js",
-      "test/validate.js"
-    ],
     "require": [
       "esm"
     ],
