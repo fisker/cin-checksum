@@ -1,5 +1,5 @@
 import product from 'fast-cartesian-product'
-import babel from 'rollup-plugin-babel'
+import babel from '@rollup/plugin-babel'
 import prettier from 'rollup-plugin-prettier'
 import {terser} from 'rollup-plugin-terser'
 
@@ -17,7 +17,7 @@ const builds = product([
   const file = `dist/index${minify ? '.min' : ''}.${extension}`
 
   if (format === 'umd') {
-    plugins.push(babel())
+    plugins.push(babel({babelHelpers: 'bundled'}))
   }
 
   return {
