@@ -1,6 +1,6 @@
 import test from 'ava'
-import {validate} from '../src'
-import ids from './_fixtures'
+import {validate} from '../src/index.js'
+import ids from './_fixtures.js'
 
 test('should be true', (t) => {
   for (const id of ids) {

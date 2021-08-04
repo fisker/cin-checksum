@@ -15,7 +15,9 @@ dist/
 ├─ index.js         ( UMD )
 ├─ index.min.js     ( UMD, compressed )
 ├─ index.mjs        ( ES Module )
-└─ index.min.mjs    ( ES Module, compressed )
+├─ index.min.mjs    ( ES Module, compressed )
+├─ index.cjs        ( CommonJS )
+└─ index.min.cjs    ( CommonJS, compressed )
 ```
 
 ## Usage
@@ -39,11 +41,6 @@ dist/
 ```js
 // ES Module
 import {generate, validate} from 'cin-checksum'
-```
-
-```js
-// UMD
-const {generate, validate} = require('cin-checksum')
 ```
 
 ## API
