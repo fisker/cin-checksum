@@ -3,7 +3,7 @@ import {babel} from '@rollup/plugin-babel'
 import prettier from 'rollup-plugin-prettier'
 import {terser} from 'rollup-plugin-terser'
 
-const UMD_NAME = 'CIN.checksum'
+const UMD_NAME = 'CIN'
 const input = 'src/index.js'
 
 const builds = product([

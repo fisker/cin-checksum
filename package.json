@@ -1,6 +1,6 @@
 {
   "name": "cin-checksum",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Citizen identification number(GB 11643-1999) Checksum",
   "homepage": "https://github.com/fisker/cin-checksum#readme",
   "bugs": {
