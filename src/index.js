@@ -2,17 +2,30 @@
 const weights = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2]
 const code = '10X98765432'
 
-function generate(parts) {
-  let sum = 0
-  for (let digit = 0; digit < 17; digit += 1) {
-    sum += Number(parts[digit]) * weights[digit]
+function generateCinCheckNumber(masterNumber) {
+  if (typeof masterNumber !== 'string' || !/^\d{17}$/.test(masterNumber)) {
+    throw new Error(
+      `The master number should be a 17 digits string, got '${masterNumber}'.`,
+    )
   }
 
-  return code.charAt(sum % 11)
+  let sum = 0
+  // eslint-disable-next-line unicorn/no-for-loop
+  for (let digit = 0; digit < masterNumber.length; digit += 1) {
+    sum += Number(masterNumber[digit]) * weights[digit]
+  }
+
+  return code[sum % 11]
 }
 
-function validate(id, checkBit = id[17]) {
-  return generate(id) === checkBit.toUpperCase()
+function isInvalidCinNumber(cinNumber) {
+  return !(
+    typeof cinNumber === 'string' &&
+    // eslint-disable-next-line regexp/use-ignore-case
+    /^\d{17}[\dXx]$/.test(cinNumber) &&
+    generateCinCheckNumber(cinNumber.slice(0, 17)) ===
+      cinNumber[17].toUpperCase()
+  )
 }
 
-export {generate, validate}
+export {generateCinCheckNumber, isInvalidCinNumber}

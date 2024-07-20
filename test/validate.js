@@ -1,31 +1,28 @@
 import test from 'ava'
-import {validate} from '../src/index.js'
+import {isInvalidCinNumber} from '../src/index.js'
 import ids from './_fixtures.js'
 
-test('should be true', (t) => {
+const idWithX = ids.find((id) => id.endsWith('X'))
+
+test('Should return `false` on valid CIN numbers', (t) => {
   for (const id of ids) {
-    t.true(validate(id))
+    t.false(isInvalidCinNumber(id))
   }
 })
 
-test('should be false', (t) => {
+test('Should return `false` on invalid CIN numbers', (t) => {
   for (const id of ids) {
     const fakeId = `${id.slice(0, 17)}Y`
-    t.false(validate(fakeId))
+    t.true(isInvalidCinNumber(fakeId))
   }
+
+  t.true(isInvalidCinNumber())
+  t.true(isInvalidCinNumber('1'.repeat(17)))
+  t.true(isInvalidCinNumber(Number('1'.repeat(18))))
+  t.true(isInvalidCinNumber([...idWithX].reverse().join('')))
 })
 
-test('should ignore case', (t) => {
-  for (const id of ids.filter((id) => id[17].toLowerCase() === 'x')) {
-    t.true(validate(id.toLowerCase()))
-    t.true(validate(id.toUpperCase()))
-  }
-})
-
-test('should accept check bit', (t) => {
-  const id = ids[0]
-  const checksum = id[17]
-
-  t.true(validate(id, checksum))
-  t.false(validate(id, 'y'))
+test('Should ignore cases', (t) => {
+  t.false(isInvalidCinNumber(idWithX.toLowerCase()))
+  t.false(isInvalidCinNumber(idWithX.toUpperCase()))
 })
