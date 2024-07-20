@@ -71,7 +71,7 @@ Master number (本体码, leading 17 digits of CIN number) to generate check num
 Check given CIN number has invalid check bit.
 
 > [!Warning]
-> This function does not check area code and birth date.
+> This function does not check area code (地址码), birth date (出生日期码), and order code (顺序码).
 
 ```js
 isInvalidCinNumber('11010519491231002X')
