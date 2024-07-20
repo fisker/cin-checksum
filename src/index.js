@@ -1,18 +1,18 @@
-// See /docs/GB_11643-1999_公民身份号码.pdf
-const weights = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2]
-const code = '10X98765432'
-
 const isMasterNumber = (value) =>
-  typeof value !== 'string' || !/^\d{17}$/.test(value)
+  typeof value === 'string' && /^\d{17}$/.test(value)
 
 const isCinNumber = (value) =>
   // eslint-disable-next-line regexp/use-ignore-case
-  typeof value !== 'string' || /^\d{17}[\dXx]$/.test(value)
+  typeof value === 'string' && /^\d{17}[\dXx]$/.test(value)
 
-function generate(parts) {
+// See /docs/GB_11643-1999_公民身份号码.pdf
+const weights = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2]
+const code = '10X98765432'
+function generate(digits) {
   let sum = 0
-  for (let digit = 0; digit < 17; digit += 1) {
-    sum += Number(parts[digit]) * weights[digit]
+
+  for (let index = 0; index < 17; index += 1) {
+    sum += Number(digits[index]) * weights[index]
   }
 
   return code[sum % 11]
@@ -31,7 +31,7 @@ function generateCinCheckNumber(masterNumber) {
 function isInvalidCinNumber(cinNumber) {
   return !(
     isCinNumber(cinNumber) &&
-    generate(cinNumber) === cinNumber[17].toUpperCase()
+    cinNumber[17].toUpperCase() === generate(cinNumber)
   )
 }
 
