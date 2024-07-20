@@ -9,10 +9,10 @@ function generateCinCheckNumber(masterNumber) {
 
   let sum = 0
   for (let digit = 0; digit < masterNumber.length; digit += 1) {
-    sum += Number(masterNumber.charAt(digit)) * weights[digit]
+    sum += Number(masterNumber[digit]) * weights[digit]
   }
 
-  return code.charAt(sum % 11)
+  return code[sum % 11]
 }
 
 function isInvalidCinNumber(cinNumber) {
