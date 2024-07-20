@@ -27,74 +27,67 @@ dist/
 ```html
 <!-- ES Module -->
 <script type="module">
-  import {generate, validate} from 'https://unpkg.com/cin-checksum?module'
+  import {generateCinCheckNumber, isInvalidCinNumber} from 'https://unpkg.com/cin-checksum?module'
 </script>
 
 <!-- UMD -->
 <script src="https://unpkg.com/cin-checksum" nomodule></script>
 ```
 
-`UMD` build exports a global object `CIN.checksum` contains two methods `CIN.checksum.generate` and `CIN.checksum.validate`
+`UMD` build exports a global object `CIN` contains two methods `CIN.generateCinCheckNumber` and `CIN.isInvalidCinNumber`
 
 ### node
 
 ```js
 // ES Module
-import {generate, validate} from 'cin-checksum'
+import {generateCinCheckNumber, isInvalidCinNumber} from 'cin-checksum'
 ```
 
 ## API
 
-### generate(parts)
+### generateCinCheckNumber(masterNumber)
 
-generate checksum by parts
+Generate check number (校验码) with master number (本体码, leading 17 digits of CIN number).
 
 ```js
-generate('11010519491231002')
+generateCinCheckNumber('11010519491231002')
 // -> 'X'
 
-generate('44052418800101001')
+generateCinCheckNumber('44052418800101001')
 // -> '4'
 ```
 
-#### parts
+#### `masterNumber`
 
-first 17 digits to generate checksum
+- type: `string`
 
-### validate(parts, checkBit?)
+Master number (本体码, leading 17 digits of CIN number) to generate check number (校验码).
+
+### isInvalidCinNumber(cinNumber)
+
+Check given CIN number has invalid check bit.
+
+> [!Warning]
+> This function does not check area code and birth date.
 
 ```js
-validate('11010519491231002X')
+isInvalidCinNumber('11010519491231002X')
 // -> true
 ```
 
-<!-- markdownlint-disable MD024 -->
+#### cinNumber
 
-#### parts
-
-<!-- markdownlint-enable MD024 -->
-
-- first 17/18 digits to validate
 - type: `string`
 
-```js
-validate('11010519491231002X')
-// -> true
-
-validate('11010519491231002', 'x')
-// -> true
-```
-
-#### checkBit
-
-- checkBit to validate
-- type: `string`
-- default: parts[17]
+CIN number (case insensitive).
 
 ```js
-validate('11010519491231002X')
+isInvalidCinNumber('11010519491231002X')
 // -> true
 
-validate('11010519491231002X', '0')
-// -> false
+isInvalidCinNumber('11010519491231002x')
+// -> true
+
+isInvalidCinNumber('110105194912310020')
+// -> true
 ```
