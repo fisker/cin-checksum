@@ -19,11 +19,10 @@ test('Should return `false` on invalid CIN numbers', (t) => {
   t.true(isInvalidCinNumber())
   t.true(isInvalidCinNumber('1'.repeat(17)))
   t.true(isInvalidCinNumber(Number('1'.repeat(18))))
-  t.true(isInvalidCinNumber(idWithX.split('').reverse().join('')))
+  t.true(isInvalidCinNumber([...idWithX].reverse().join('')))
 })
 
 test('Should ignore cases', (t) => {
   t.false(isInvalidCinNumber(idWithX.toLowerCase()))
   t.false(isInvalidCinNumber(idWithX.toUpperCase()))
 })
-

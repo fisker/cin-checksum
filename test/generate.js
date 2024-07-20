@@ -7,8 +7,8 @@ test('should generate right checksum', (t) => {
     t.is(generateCinCheckNumber(id.slice(0, 17)), id[17])
   }
 
-  t.throws(()=> generateCinCheckNumber())
-  t.throws(()=> generateCinCheckNumber(false))
-  t.throws(()=> generateCinCheckNumber(ids[0]))
-  t.throws(()=> generateCinCheckNumber('1'.repeat(16) + 'x'))
+  t.throws(() => generateCinCheckNumber())
+  t.throws(() => generateCinCheckNumber(false))
+  t.throws(() => generateCinCheckNumber(ids[0]))
+  t.throws(() => generateCinCheckNumber(`${'1'.repeat(16)}x`))
 })

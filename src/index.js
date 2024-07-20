@@ -4,10 +4,13 @@ const code = '10X98765432'
 
 function generateCinCheckNumber(masterNumber) {
   if (typeof masterNumber !== 'string' || !/^\d{17}$/.test(masterNumber)) {
-    throw new Error(`The master number should be a 17 digits string, got '${masterNumber}'.`)
+    throw new Error(
+      `The master number should be a 17 digits string, got '${masterNumber}'.`,
+    )
   }
 
   let sum = 0
+  // eslint-disable-next-line unicorn/no-for-loop
   for (let digit = 0; digit < masterNumber.length; digit += 1) {
     sum += Number(masterNumber[digit]) * weights[digit]
   }
@@ -17,9 +20,11 @@ function generateCinCheckNumber(masterNumber) {
 
 function isInvalidCinNumber(cinNumber) {
   return !(
-    typeof cinNumber === 'string'
-    && /^\d{17}[\dxX]$/.test(cinNumber)
-    && generateCinCheckNumber(cinNumber.slice(0, 17)) === cinNumber[17].toUpperCase()
+    typeof cinNumber === 'string' &&
+    // eslint-disable-next-line regexp/use-ignore-case
+    /^\d{17}[\dXx]$/.test(cinNumber) &&
+    generateCinCheckNumber(cinNumber.slice(0, 17)) ===
+      cinNumber[17].toUpperCase()
   )
 }
 

@@ -27,7 +27,10 @@ dist/
 ```html
 <!-- ES Module -->
 <script type="module">
-  import {generateCinCheckNumber, isInvalidCinNumber} from 'https://unpkg.com/cin-checksum?module'
+  import {
+    generateCinCheckNumber,
+    isInvalidCinNumber,
+  } from 'https://unpkg.com/cin-checksum?module'
 </script>
 
 <!-- UMD -->
