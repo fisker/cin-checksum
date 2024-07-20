@@ -34,7 +34,7 @@
     "clean": "run-p clean:*",
     "clean:dist": "del-cli dist",
     "dist": "run-p dist:*",
-    "dist:npm": "np --yolo --no-yarn",
+    "dist:npm": "np --yolo",
     "fix": "run-p fix:*",
     "fix:eslint": "yarn lint:eslint --fix",
     "fix:markdown": "yarn lint:markdown --fix",
